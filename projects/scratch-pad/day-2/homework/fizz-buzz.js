@@ -12,13 +12,22 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
+    // loop from 1 to 100 in incraments of 1
     for (var i = 1; i <= 100; i++){
+        // condtion i is multiple of 3 & 5
         if(i % 3 === 0 && i % 5 === 0){
-            console.log("Fizz Buzz");
-        }if(i % 5 === 0){
+            // log FizzBuzz
+            console.log("FizzBuzz");
+            // condition i is mulitple of 5
+        }else if(i % 5 === 0){
+            // log buzz
             console.log("Buzz");
-        }if(i % 3 === 0){
+            // condition i is muliple of 3
+        }else if(i % 3 === 0){
+            // log Fizz
             console.log("Fizz");
+        }else{
+            console.log(i);
         }
 }
 

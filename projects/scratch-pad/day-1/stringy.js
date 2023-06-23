@@ -133,7 +133,7 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
+        return args.join('');
 
     // YOUR CODE ABOVE HERE //
 }
