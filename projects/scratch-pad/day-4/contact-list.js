@@ -58,7 +58,9 @@ function makeContactList() {
             contacts.push(contact);
         },
         findContact: function(fullName){
-            
+            var storName =  contact.nameFirst + ' ' + contact.nameLast;
+           
+           }
         },
     }
 }
