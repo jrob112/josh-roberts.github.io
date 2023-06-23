@@ -12,7 +12,15 @@
 */
 function fizzBuzz() {
     // YOUR CODE GOES BELOW HERE //
-
+    for (var i = 1; i <= 100; i++){
+        if(i % 3 === 0 && i % 5 === 0){
+            console.log("Fizz Buzz");
+        }if(i % 5 === 0){
+            console.log("Buzz");
+        }if(i % 3 === 0){
+            console.log("Fizz");
+        }
+}
 
 
     // YOUR CODE GOES ABOVE HERE //

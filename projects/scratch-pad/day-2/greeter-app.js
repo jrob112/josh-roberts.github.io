@@ -19,16 +19,8 @@
    
   // hour is 22-24 
    //Good Night!
-var hour = 0;
-   if(hour >= 0 && hour <= 11){
-    console.log("Good Morning!");
-   }else if(hour >= 12 && hour <= 16){
-    consloe.log("Good Afternoon!");
-    } else if(hour >= 17 && hour <= 21){
-    consloe.log("Good Evening!");
-    }else{
-    consloe.log("Good Night!");
- }
+
+ 
  /* TIPS: 
  * 
  *   a. At what threshold does morning become afternoon? What comparison 
@@ -44,8 +36,15 @@ var hour = 0;
 
 function greeter(hour) {
     // YOUR CODE BELOW HERE //
-    
-    
+   if(hour <= 11){
+    console.log("Good Morning!");
+   }else if(hour <= 16){
+    console.log("Good Afternoon!");
+    } else if(hour <= 21){
+    console.log("Good Evening!");
+    }else{
+    console.log("Good Night!");
+    }
     
     
     // YOUR CODE ABOVE HERE //

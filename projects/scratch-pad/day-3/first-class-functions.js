@@ -14,7 +14,7 @@
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
     //value is greater than base
-    return value > (base) 
+    return value > base; 
     
     
     // YOUR CODE ABOVE HERE //
@@ -96,7 +96,9 @@ function modifyStrings(strings, modify) {
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     // for loop to iterate over strings
-    for(var i = 0; i < strings.length; i++)
+    for(var i = 0; i < strings.length; i++){
+        return test(i);
+    }
     
     
     
