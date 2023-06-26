@@ -58,9 +58,19 @@ function makeContactList() {
             contacts.push(contact);
         },
         findContact: function(fullName){
-            return  contacts[nameFirst] + ' ' + contacts[nameLast];
+            var nameSplit = fullName.split(' ');
+                if(nameSplit[0] === contacts["nameFirst"] && nameSplit[1] === contacts["nameLast"]){
+                    return ;
+                }else{
+                    return undefined
+                }
+                 
+        },
+        removeContact: function(contact){
+            if (contact === fullName)
+        }
+
            
-           }
         }
     }
 
