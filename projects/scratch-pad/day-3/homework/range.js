@@ -23,6 +23,18 @@
  */
 function range(start, end) {
     // YOUR CODE GOES BELOW HERE //
+    var collect = [];
+    if(start > end){
+    for(var i = start; i >= end; i++){
+        collect.push([i]);
+    }else{
+        for(var i = end; i >= start; i++){
+        collect.push([i]);
+    }
+    
+        
+}
+}return collect;
     
     
     
