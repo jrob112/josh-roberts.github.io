@@ -84,7 +84,7 @@ function modifyStrings(strings, modify) {
     // for loop to iterate over strings
     for(var i = 0; i < strings.length; i++){
         collectArray.push(strings[i]); 
-    }return collectArray(modify);
+    }return modify(collectArray);
     
     
     // YOUR CODE ABOVE HERE //

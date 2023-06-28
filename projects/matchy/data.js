@@ -64,13 +64,31 @@ console.log(animal);
 //////////////////////////////////////////////////////////////////////
 var animals = [];
 animals.push(animal);
-console.log(animals)
+console.log(animals);
+var duck = { species: 'duck', name: 'Jerome', noises: ['quack', 'honk', 'sneeze', 'woosh'] };
+animals.push(duck);
+console.log(animals);
+var dog = { species: 'canine', name: 'Spook', noises: ['bark', 'growl'] };
+animals.push(dog);
+var cow = { species: 'bovine', name: 'Igor', noises: ['moo', 'bellow'] };
+animals.push(cow);
+console.log(animals);
+console.log(animals.length);
+
 
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+// an array would be best because it would be a list describing one topic
+var friends = [];
+function getRandom(arr){
+    return arr[Math.floor(Math.random())];
+}
 
+friends.push(getRandom(animals).name);
 
+console.log(friends);
+animal['friends'] = friends;
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
