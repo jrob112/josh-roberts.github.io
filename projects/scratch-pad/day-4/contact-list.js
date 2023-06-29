@@ -62,12 +62,17 @@ function makeContactList() {
                 if(nameSplit[0] === contacts["nameFirst"] && nameSplit[1] === contacts["nameLast"]){
                     return ;
                 }else{
-                    return undefined
+                    return undefined;
                 }
                  
         },
         removeContact: function(contact){
-            if (contact === fullName)
+            if (contact === fullName){
+                delete contact;
+            }
+        },
+        printAllContactNames: function(fullName){
+            return fullName.contact;
         }
 
            

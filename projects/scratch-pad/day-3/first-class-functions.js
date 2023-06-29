@@ -103,7 +103,7 @@ function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     // for loop to iterate over strings
     for(var i = 0; i < strings.length; i++){
-        return test(i);
+        return test(strings[i]);
     }
     
     
