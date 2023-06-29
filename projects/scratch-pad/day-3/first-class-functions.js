@@ -83,8 +83,10 @@ function modifyStrings(strings, modify) {
     var collectArray = [];
     // for loop to iterate over strings
     for(var i = 0; i < strings.length; i++){
-        collectArray.push(strings[i]); 
-    }return modify(collectArray);
+        // use push method to add the iteration from the loop to collectArray
+        collectArray.push(modify(strings[i])); 
+    }//return collectArray with modify
+    return collectArray;
     
     
     // YOUR CODE ABOVE HERE //
@@ -101,11 +103,19 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
+    // init variable to store loop iteration
+    let myArray = [];
     // for loop to iterate over strings
     for(var i = 0; i < strings.length; i++){
-        return test(strings[i]);
+        // push values that have test function to my array
+           // myArray.push(test(strings[i]));
+        // conditional statement that compares myArray to test
+        if(test(strings[i]) === false){
+            return false;
+        }
+       
     }
-    
+        return true;
     
     
     // YOUR CODE ABOVE HERE //

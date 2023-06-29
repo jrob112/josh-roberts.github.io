@@ -52,27 +52,50 @@ function makeContactList() {
     return {
         // we implemented the length api for you //
         length: function() {
+            // returns number of contacts
             return contacts.length;
         },
         addContact: function(contact){
+            // use .push to add contact to contacts
             contacts.push(contact);
         },
         findContact: function(fullName){
-            var nameSplit = fullName.split(' ');
-                if(nameSplit[0] === contacts["nameFirst"] && nameSplit[1] === contacts["nameLast"]){
-                    return ;
+          
+        
+                for(var i = 0; i <= contacts.length - 1; i++){
+                // use conditional statement to compare nameSplit at the indexs to nameFirst and nameLast
+                if(fullName === contacts[i]["nameFirst"] + " " + contacts[i]["nameLast"]){
+                    // returns the contact object
+                    return contacts[i];
                 }else{
+                    // else returns undefined
                     return undefined;
                 }
                  
-        },
+        }
+    },
         removeContact: function(contact){
-            if (contact === fullName){
-                delete contact;
+            // use for loop to iterae over contacts
+            for(var i = 0; i < contacts.length; i++){
+                // conditional statement to compare contact to contacts[i]
+            if (contact === contacts[i]){
+                return contacts.splice([i], 1);
             }
+        }
         },
         printAllContactNames: function(fullName){
-            return fullName.contact;
+            // init variable to hold string
+            let hold1 = '';
+        // use for loop it iterate over contacts
+        for(var i = 0; i < contacts.length; i++){
+            // conditional statement that compares length of contacts to i
+            if(i === contacts.length - 1){
+                hold1 += contacts[i].nameFirst + ' ' + contacts[i].nameLast;
+            }else{
+                hold1 += contacts[i].nameFirst + ' ' + contacts[i].nameLast + '\n';
+            }
+        }   
+        return hold1;
         }
 
            
