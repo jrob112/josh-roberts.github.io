@@ -3,6 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 function objectValues(object) {
+    // return values of an object as an array
         return Object.values(object);
 } 
 
@@ -11,6 +12,7 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
+    // return keys of an object  as a string joined with a space
         return Object.keys(object).join(' ');
 }
 
@@ -19,12 +21,16 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
+    //init a variable to hold value as an array
    var keepArray = [];
+   // for in loop to iterate over object
     for(var key in object){
+        //condiontaional statement that compares if an object value is a string
       if(typeof object[key] === 'string'){
+        //if true push values to keepArray
          keepArray.push(object[key]);
       }
-    }
+    }//return keepArray joined with a space
     return keepArray.join(' ');
 }
 
@@ -133,7 +139,11 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-   
+   if(typeof object.friends === 'object' && object.friends.includes(name)){
+    return true;
+   }else {
+    return false;
+   }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -141,7 +151,14 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-
+    let notFriends = [];
+    for(var i = 0; i < array.length; i++){
+        if(name !== array[i].name && array[i].friends.includes(name) === false){
+                    notFriends.push(name);
+            }
+        
+    }
+        return notFriends;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -149,7 +166,11 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-
+    if(object[key].includes(key) === true){
+        return object[key] = value;
+    }else if(object[key].includes(key) === false){
+        return object[key];
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -157,7 +178,11 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
-
+    for (var i = 0; i < array.length; i++){
+        if(Object.keys.includes(array[i])){
+           object[array[i]].remove;
+        }
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -165,7 +190,16 @@ function removeProperties(object, array) {
 //////////////////////////////////////////////////////////////////////
 
 function dedup(array) {
-
+    //init variable with empty array to store each value
+    let each = [];
+    //for loop to iterate over array
+    for (i = 0; i < array.length; i++) {
+        //conditional statement that comapares 
+        if (each.indexOf(array[i]) === -1) {
+            each.push(array[i]);
+        }
+    }
+    return each;
 }
 
 //////////////////////////////////////////////////////////////////////
