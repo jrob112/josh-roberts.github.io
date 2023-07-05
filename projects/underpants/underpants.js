@@ -20,7 +20,7 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-
+_.identity = value => value;
 
 /** _.typeOf
 * Arguments:
@@ -41,7 +41,13 @@ var _ = {};
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-
+_.typeOf = function(value){
+    if(value == ''){
+        return 'string';
+    }else if(value == 1){
+        return 'number'
+    }
+}
 
 /** _.first
 * Arguments:
@@ -60,7 +66,9 @@ var _ = {};
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
-
+_.first = function(array, number){
+    if()
+}
 
 /** _.last
 * Arguments:
