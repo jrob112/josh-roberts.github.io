@@ -42,12 +42,10 @@ function replace(animals, name, replacement){
 function remove(animals, name){
     // loop over animals array
     for(let i = 0; i < animals.length; i++){
-        // if value at each index of animals doesnt equal name
-        if(animals[i] !== name){
-            
-        }else{//if it does
+        // if value at each index of animals equal name
+        if(animals[i].name === name){
             // remove the matching name from the animals array
-            animals.splice(animals.indexOf(name), 1);
+             animals.splice(animals[i], 1);
         }
     }
         
