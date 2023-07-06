@@ -152,8 +152,9 @@ function isFriend(name, object) {
 
 function nonFriends(name, array) {
     let notFriends = [];
+
     for(var i = 0; i < array.length; i++){
-        if(name !== array[i].name && array[i].friends.includes(name) === false){
+        if(name !== array[i].name && array[i].friends.includes !== name){
                     notFriends.push(name);
             }
         
@@ -166,10 +167,10 @@ function nonFriends(name, array) {
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-    if(object[key].includes(key) === true){
+    if(object[key].includes(key)){
         return object[key] = value;
     }else if(object[key].includes(key) === false){
-        return object[key];
+        return object[key] = value;
     }
 }
 
@@ -178,9 +179,12 @@ function updateObject(object, key, value) {
 //////////////////////////////////////////////////////////////////////
 
 function removeProperties(object, array) {
+    // loop over array
     for (var i = 0; i < array.length; i++){
+        //if the key in an object includes the propoerty from an array
         if(Object.keys.includes(array[i])){
-           object[array[i]].remove;
+            // remove the property
+          delete object[array[i]];
         }
     }
 }

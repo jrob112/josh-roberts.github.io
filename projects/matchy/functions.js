@@ -40,9 +40,19 @@ function replace(animals, name, replacement){
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function remove(animals, name){
-    if(animals.includes(name)){
-        return name.remove();
-    }
+    let index;
+    // loop over aniamls array
+     for (var i = 0; i < animals.length; i++){
+        //if name isnt in animals array
+       if(name !== animals[i]){
+        //return array
+        return animals;
+       }else{//else push the index of the name that matches 
+        index = animals.indexOf(animals[i])
+       }
+     }
+        //return animals array with the index removed
+        return animals.splice(index, 1);
 }
 
 
@@ -50,7 +60,16 @@ function remove(animals, name){
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function add(animals, animal){
-    animals.names.length > 0
+    var match = [];
+    for(var i = 0; i < animals.length; i++){
+    // if-animal doesnt match animals.name
+    if(animal.name === animals[i].name){
+        match.push(animals[i]);
+    } 
+}
+        if (match.length === 0 && animal.name.length > 0 && animal.species.length > 0){
+             return animals.push(animal);
+        }
 }
 
 
