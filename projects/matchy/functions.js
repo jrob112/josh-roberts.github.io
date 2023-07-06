@@ -40,19 +40,17 @@ function replace(animals, name, replacement){
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function remove(animals, name){
-    let index;
-    // loop over aniamls array
-     for (var i = 0; i < animals.length; i++){
-        //if name isnt in animals array
-       if(name !== animals[i]){
-        //return array
-        return animals;
-       }else{//else push the index of the name that matches 
-        index = animals.indexOf(animals[i])
-       }
-     }
-        //return animals array with the index removed
-        return animals.splice(index, 1);
+    // loop over animals array
+    for(let i = 0; i < animals.length; i++){
+        // if value at each index of animals doesnt equal name
+        if(animals[i] !== name){
+            
+        }else{//if it does
+            // remove the matching name from the animals array
+            animals.splice(animals.indexOf(name), 1);
+        }
+    }
+        
 }
 
 
