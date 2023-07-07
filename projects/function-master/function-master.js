@@ -151,27 +151,40 @@ function isFriend(name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function nonFriends(name, array) {
-    let notFriends = [];
-
+    var list = [];
+    var result = [];
+    var current = null;
     for(var i = 0; i < array.length; i++){
-        if(name !== array[i].name && array[i].friends.includes !== name){
-                    notFriends.push(name);
-            }
-        
+        if(name === array[i].name){
+            current = array[i];
+        }else{
+            list.push(array[i].name);
+        }
     }
-        return notFriends;
-}
 
+    if(current === null){
+        return nameList;
+    }
+
+    for(var i = 0; i < list.length; i++){
+        if(current.friends.indexOf(list[i]) == -1){
+            result.push(list[i]);
+        }
+    }
+
+    return result;
+
+}
 //////////////////////////////////////////////////////////////////////
 // Function 14 - Update Object ///////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
 function updateObject(object, key, value) {
-    if(object[key].includes(key)){
-        return object[key] = value;
-    }else if(object[key].includes(key) === false){
-        return object[key] = value;
-    }
+    //if an object has a key value of 'key'
+        //update the value
+     object[key] = value;
+     return object;
+ 
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -181,11 +194,8 @@ function updateObject(object, key, value) {
 function removeProperties(object, array) {
     // loop over array
     for (var i = 0; i < array.length; i++){
-        //if the key in an object includes the propoerty from an array
-        if(Object.keys.includes(array[i])){
-            // remove the property
-          delete object[array[i]];
-        }
+           // remove the property
+            delete object[array[i]];
     }
 }
 

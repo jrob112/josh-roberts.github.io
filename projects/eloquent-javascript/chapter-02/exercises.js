@@ -3,15 +3,15 @@
 // triangles ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function triangles() {
-  // init triangles as empty array 
-  const triangles = [];
-  // for loop to itterate over array
-    for(let i = 0; i < triangles.length; i++){
-      triangles.push(i);
-    }
-      //return triangles
-        return triangles;
+function triangles(size) {
+  // init pic variable for #
+  let pic = "";
+     for (let i = 0; i < size; i++)
+  {
+    pic += "#";
+    console.log(pic);
+  }
+  
 }
 ////////////////////////////////////////////////////////////////////////////////
 // fizzBuzz ////////////////////////////////////////////////////////////////////
@@ -42,23 +42,22 @@ function fizzBuzz() {
 ////////////////////////////////////////////////////////////////////////////////
 
 function drawChessboard(size) {
-  var size = 8;
   // init variable myBoard
   var myBoard = '';
   //for loop that begins at 0, end at 8 and increments 1 that represents the board
   for(let i = 0; i < size; i++){
     // nested for loop that represents the rows
-    for(let j = 0; j < 8; j++){
+    for(let j = 0; j < size; j++){
       if ((i + j) % 2 === 0){
-          myBoard += '';
+          myBoard += ' ';
       }else {
           myBoard += '#';
       }
-    }
+    } myBoard += '\n'
   }
-      myBoard += '\n'
+   console.log(myBoard);  
 }
-console.log(myBoard);
+
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
