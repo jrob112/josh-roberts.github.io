@@ -46,6 +46,18 @@ _.typeOf = function(value){
         return 'string';
     }else if(value == 1){
         return 'number'
+    }else if(Array.isArray(value)){
+        return 'array';
+    }else if(value === true || value === false){
+        return 'boolean';
+    }else if(value instanceof Function){
+        return 'function';
+    }else if (value == {}){
+        return 'object';
+    }else if(value === null){
+        return 'null';
+    }else{
+        return 'undefined'
     }
 }
 
@@ -67,7 +79,13 @@ _.typeOf = function(value){
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 _.first = function(array, number){
-    if()
+    if(!Array.isArray(array)){
+        return [];
+    }else if(number === NaN || number !== _.typeOf(number)){
+        return array[0];
+    }else{
+        return array[i];
+    }
 }
 
 /** _.last
@@ -87,7 +105,15 @@ _.first = function(array, number){
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
+_.last = function(array, number){
+    if(!Array.isArray(array)){
+        return [];
+    }else if(number === NaN || number !== _.typeOf(number)){
+        return array.length - 1;
+    }else{
+        return array.length - 1;
+    }
+}
 
 /** _.indexOf
 * Arguments:

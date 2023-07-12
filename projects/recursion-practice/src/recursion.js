@@ -56,18 +56,24 @@ var isEven = function(n) {
 // sumBelow(7); // 21
 function sumBelow(n) {
   //base
-
+  if(n === 0){
+    return 0;
+  }
   //recursion
   if(n > 0){
-    return n += sumBelow(n - 1)
+    return ( n - 1) + sumBelow(n - 1)
   }else if(n < 0){
-    return n -= sumBelow(n + 1)
+    return (n + 1) + sumBelow(n + 1)
   }
 }
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y) {
+  //base
+
+  //recursion
+  
 };
 
 // 7. Compute the exponent of a number.
