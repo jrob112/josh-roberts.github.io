@@ -1,7 +1,9 @@
 // This makes the arguments variable behave the way we want it to and a few
 // other things. For more info:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
-'use strict';
+//'use strict';
+
+//const { result } = require("lodash");
 
 //const { isArray } = require("lodash");
 
@@ -214,12 +216,9 @@ _.each = function(collection, test){
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 _.unique = function(array){
-    let newArray = [];
-    for(let i = 0; i < array.length; i++){
-        if(array[i]){
-        newArray.push(_.indexOf(array[i]))
-    }
-}
+   array.forEach((c, index) => `${c}-${index}-${array.indexOf(c)}`)
+   let uniqueChars = array.filter((c, index) => {return array.indexOf(c) === index});
+        return uniqueChars;
 
 }
 
@@ -345,7 +344,7 @@ _.map = function(collection, test){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 _.pluck = function(array, property){
-        return _.map(array)
+        
 }
 
 /** _.every
@@ -409,7 +408,20 @@ _.every = function(collection, func){
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 _.some = function(collection, test){
-
+    let result = [];
+    if(Array.isArray(collection)){
+        for(i=0;i<collection.length;i++){
+                result.push(test(collection[i], i, collection))
+        }
+    }else{
+        for(let key in collection){
+            result.push(test(collection[key], key, collection))
+        }
+    }
+// }if(result.includes(true)){
+//     return true;
+// }else{
+//     return false;
 }
 
 /** _.reduce
@@ -430,19 +442,20 @@ _.some = function(collection, test){
 * Examples:
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
-_.reduce = function(array, test, seed) {
-     let output = [];
+_.reduce = function(array, func, seed) {
      let result = [];
-    for(let i=0; i < array.length; i++){
-        if(i === 0){
-            result.push(test(seed, array[i], i))
-        }else if(!seed){
-            result.push(test(_.map(collection)[0], array[i], i))
-        }else{
-             output.push(test(result, array[i], i))
+     if(seed === undefined){
+        result = array[0];
+        for(let i = 1; i < array.length; i++){
+            result = func(result, array[i], i, array)
+        }     
+    }else{
+        result = seed;
+        for(let i = 0; i < array.length; i++){
+            result = func(result, array[i], i, array);
         }
  }
-        return output;
+        return result;
 }
 
 /** _.extend
@@ -460,7 +473,9 @@ _.reduce = function(array, test, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 _.extend = function(object1, object2){
-    object1
+    object1 += object2
+    return object1
+    
 }
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
