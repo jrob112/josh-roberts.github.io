@@ -344,7 +344,10 @@ _.map = function(collection, test){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 _.pluck = function(array, property){
-        
+        let result = _.map(array, function(item){
+           return item[property]
+        })
+        return result;
 }
 
 /** _.every
@@ -409,7 +412,14 @@ _.every = function(collection, func){
 */
 _.some = function(collection, test){
     let result = [];
-    if(Array.isArray(collection)){
+    if(test === undefined){
+        for(let i=0;i<collection.length;i++){
+            if(collection[i]){
+                return true;
+            } return false;
+        }
+    }
+    else if(Array.isArray(collection)){
         for(i=0;i<collection.length;i++){
                 result.push(test(collection[i], i, collection))
         }
@@ -418,10 +428,11 @@ _.some = function(collection, test){
             result.push(test(collection[key], key, collection))
         }
     }
-// }if(result.includes(true)){
-//     return true;
-// }else{
-//     return false;
+if(result.includes(true)){
+    return true;
+}else{
+    return false;
+}
 }
 
 /** _.reduce
@@ -472,10 +483,9 @@ _.reduce = function(array, func, seed) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
-_.extend = function(object1, object2){
-    object1 += object2
-    return object1
-    
+_.extend = function(target, ...source){
+   return  returnedTarget = Object.assign(target, ...source);
+
 }
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
