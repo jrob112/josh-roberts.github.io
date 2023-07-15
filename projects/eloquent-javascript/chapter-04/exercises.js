@@ -46,7 +46,17 @@ function arrayToList() {
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
+function listToArray(list, output = []) {
+//base
+if(list.rest === null){
+  output.push(list.value);
+  return output
+}
+//recursion
+// grab current value at 'value' and add it to your array
+  output.push(list.value)
+
+  return listToArray(list.rest, output);
 
 }
 
