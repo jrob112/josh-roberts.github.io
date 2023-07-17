@@ -22,20 +22,56 @@ var _ = require(`underbar`);
  */
 
 var maleCount = function(array) {
+    let males = _.reduce(array, function(accumalator, current){
+        if(current.gender === 'male'){
+             accumalator += 1;
+             let filtered = filter(persons, (p) => p.age < 30);
+        }
+                return accumalator;
+    }, 0);
+        return males;
+    };
 
+
+
+
+var femaleCount = function(array) {
+    let females = _.reduce(array, function(accumalator, current){
+        if(current.gender === 'female'){
+             accumalator += 1;
+             let filtered = filter(persons, (p) => p.age < 30);
+        }
+                return accumalator;
+    }, 0);
+        return females;
+    };
+
+
+var oldestCustomer = function(array){
+    let oldest = _.reduce(array, function(accumalator, current){
+    });
+        return oldest.name;
 };
 
-var femaleCount;
-
-var oldestCustomer;
-
-var youngestCustomer;
+var youngestCustomer = function(array){
+    let yougest = _.reduce(array, function(accumalator, current){
+    });
+        return youngest.name;
+};
 
 var averageBalance;
 
 var firstLetterCount;
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function(array, customer, letter){
+    let names = _.filter(array, function(obj){
+        if(customer['friends']){
+            return customer['friends'];
+        }
+            return obj.names === customer;
+    });
+        return names.length;
+};
 
 var friendsCount;
 
