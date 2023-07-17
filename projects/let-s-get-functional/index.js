@@ -2,6 +2,7 @@
 
 'use strict';
 
+const { includes } = require('lodash');
 var customers = require('./data/customers.json');
 var _ = require(`underbar`);
 
@@ -22,50 +23,62 @@ var _ = require(`underbar`);
  */
 
 var maleCount = function(array) {
-    let males = _.reduce(array, function(accumalator, current){
-        if(current.gender === 'male'){
-             accumalator += 1;
-             let filtered = filter(persons, (p) => p.age < 30);
-        }
-                return accumalator;
-    }, 0);
-        return males;
-    };
+    let males = _.filter(array, function(customers){
+       return customers.gender === 'male'
+    });
+    return males.length;
+ };
 
 
 
 
-var femaleCount = function(array) {
+var femaleCount = function(array){
     let females = _.reduce(array, function(accumalator, current){
         if(current.gender === 'female'){
-             accumalator += 1;
-             let filtered = filter(persons, (p) => p.age < 30);
+              accumalator += 1
+                
         }
-                return accumalator;
-    }, 0);
-        return females;
-    };
-
+  }, 0);
+    return females;
+};
 
 var oldestCustomer = function(array){
     let oldest = _.reduce(array, function(accumalator, current){
+        if(current.age > accumalator.age){
+            return current;
+        }else{
+            return accumalator;
+        }
     });
         return oldest.name;
 };
 
 var youngestCustomer = function(array){
-    let yougest = _.reduce(array, function(accumalator, current){
+    let youngest = _.reduce(array, function(accumalator, current){
+        if(current.age < accumalator.age){
+            return current;
+        }else{
+            return accumalator;
+        }
     });
         return youngest.name;
 };
 
 var averageBalance;
 
-var firstLetterCount;
+var firstLetterCount = function(array, customer, letter){
+    let names = _.filter(array, function(obj){
+        if(customer['name'][0].toLowerCase() === letter.toLowerCase()){
+            return customer['name'];
+        }
+            
+    });
+        return names.length;
+};
 
 var friendFirstLetterCount = function(array, customer, letter){
     let names = _.filter(array, function(obj){
-        if(customer['friends']){
+        if(customer['friends'][0].toLowerCase() === letter.toLowerCase()){
             return customer['friends'];
         }
             return obj.names === customer;
@@ -73,12 +86,50 @@ var friendFirstLetterCount = function(array, customer, letter){
         return names.length;
 };
 
-var friendsCount;
+var friendsCount = function(array, customer, name){
+    let names = _.filter(array, function(obj){
+        if(customer['friends'] === name){
+            return customer['friends'];
+        }
+            return obj.names === customer;
+    });
+        return names;
+};
 
-var topThreeTags;
+var topThreeTags = function(array){
+    let commonTags = _.filter(array, function(array){
+        if(array[i].includes(array[i])){
 
-var genderCount;
+        }
+    })
+};
 
+var genderCount = function(array) {
+    let count = {};
+    let females = _.reduce(array, function(accumalator, current){
+        if(current.gender === 'female'){
+             accumalator += 1;
+        }
+                return accumalator;
+    }, 0);
+         count.females = [females];
+    };
+    let males = _.reduce(array, function(accumalator, current){
+        if(current.gender === 'male'){
+             accumalator += 1;
+        }
+                return accumalator;
+    }, 0);
+         count.males = [males];
+    };
+    let nonBinary = _.reduce(array, function(accumalator, current){
+        if(current.gender === 'non-binary'){
+             accumalator += 1;
+        }
+                return accumalator;
+    }, 0);
+         count['non-binary'] = [nonBinary];
+    };
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
