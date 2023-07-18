@@ -89,23 +89,22 @@ var firstLetterCount = function(array, letter){
         return names.length;
 };
 var friendFirstLetterCount = function(array, customer, letter){
-    let names = _.filter(array, function(customer){
-        if(customer.friends[0].toLowerCase() === letter.toLowerCase()){
-            return customer.friends;
+    for(let i = 0; i < array.lenght; i++){
+        if(array[i].name === customer){
+         let names = _.filter(array, (friend => friend.name[0].toLowerCase() === letter.toLowerCase()))
+             return names.length;   
         }
-    });
-    
-        return names.length;
+    }
+       
 };
 
 var friendsCount = function(array, customer, name){
-    let names = _.filter(array, function(obj){
-        if(customer['friends'] === name){
-            return customer['friends'];
+    for(let i = 0; i < array.length; i++){
+        if(array[i] === customer){
+            let names = _.filter(array, (friend => friend.name.toLowerCase() === name));
         }
-            return obj.name === customer;
-    });
-        return names.length;
+    }
+        return names;
 };
 
 var topThreeTags = function(array){
