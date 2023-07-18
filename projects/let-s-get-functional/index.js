@@ -2,7 +2,7 @@
 
 'use strict';
 
-const { includes } = require('lodash');
+const { includes, multiply, sum } = require('lodash');
 var customers = require('./data/customers.json');
 var _ = require(`underbar`);
 
@@ -35,9 +35,9 @@ var maleCount = function(array) {
 var femaleCount = function(array){
     let females = _.reduce(array, function(accumalator, current){
         if(current.gender === 'female'){
-              accumalator += 1
-                
+              accumalator += 1;   
         }
+        return accumalator;
   }, 0);
     return females;
 };
@@ -45,29 +45,42 @@ var femaleCount = function(array){
 var oldestCustomer = function(array){
     let oldest = _.reduce(array, function(accumalator, current){
         if(current.age > accumalator.age){
-            return current;
-        }else{
-            return accumalator;
+            accumalator = current;
         }
-    });
+         return accumalator;
+    }, {age : 0});
         return oldest.name;
 };
 
 var youngestCustomer = function(array){
     let youngest = _.reduce(array, function(accumalator, current){
         if(current.age < accumalator.age){
-            return current;
-        }else{
-            return accumalator;
+            accumalator = current;
         }
+            return accumalator;
+        
     });
         return youngest.name;
 };
 
-var averageBalance;
+var averageBalance = function(array){
+    let total = 0;
+    let avg = 0;
+    let balances = _.map(array, function(customer){
+            return customer.balance.replace(/[$,]/g, '')
+    });
+        for(let i = 0; i < balances.length; i++){
+             total += Number(balances[i]);
+        }
+         avg = total / balances.length
+         return avg;
 
-var firstLetterCount = function(array, customer, letter){
-    let names = _.filter(array, function(obj){
+};
+
+
+
+var firstLetterCount = function(array, letter){
+    let names = _.filter(array, function(customer){
         if(customer['name'][0].toLowerCase() === letter.toLowerCase()){
             return customer['name'];
         }
@@ -75,14 +88,13 @@ var firstLetterCount = function(array, customer, letter){
     });
         return names.length;
 };
-
 var friendFirstLetterCount = function(array, customer, letter){
-    let names = _.filter(array, function(obj){
-        if(customer['friends'][0].toLowerCase() === letter.toLowerCase()){
-            return customer['friends'];
+    let names = _.filter(array, function(customer){
+        if(customer.friends[0].toLowerCase() === letter.toLowerCase()){
+            return customer.friends;
         }
-            return obj.names === customer;
     });
+    
         return names.length;
 };
 
@@ -91,37 +103,51 @@ var friendsCount = function(array, customer, name){
         if(customer['friends'] === name){
             return customer['friends'];
         }
-            return obj.names === customer;
+            return obj.name === customer;
     });
-        return names;
+        return names.length;
 };
 
 var topThreeTags = function(array){
-    let commonTags = _.filter(array, function(array){
-        if(array[i].includes(array[i])){
 
-        }
+    let commonTags = _.filter(array, function(array){
+        let count = arr.reduce(function (value, value2) {
+            return (
+                value[value2] ? ++value[value2] :(value[value2] = 1),
+                value
+            );
+        }, {});
+        return count
     })
+        for(let key in commonTags){
+            if(commonTags[key]){
+
+            }
+        }
 };
 
 var genderCount = function(array) {
     let count = {};
+   if(array.gender === 'female'){ 
     let females = _.reduce(array, function(accumalator, current){
-        if(current.gender === 'female'){
+        if(current.gender === 'female'){ 
              accumalator += 1;
         }
                 return accumalator;
     }, 0);
-         count.females = [females];
+         count['females'] = [females];
     };
-    let males = _.reduce(array, function(accumalator, current){
-        if(current.gender === 'male'){
+    if(array.gender === 'male'){
+        let males = _.reduce(array, function(accumalator, current){
+            if(current.gender === 'male'){
              accumalator += 1;
         }
                 return accumalator;
     }, 0);
-         count.males = [males];
-    };
+         count['males'] = [males];
+    };   
+    if(array.gender === 'non-binary'){
+
     let nonBinary = _.reduce(array, function(accumalator, current){
         if(current.gender === 'non-binary'){
              accumalator += 1;
@@ -130,6 +156,8 @@ var genderCount = function(array) {
     }, 0);
          count['non-binary'] = [nonBinary];
     };
+        return count;
+}
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
