@@ -89,7 +89,7 @@ var firstLetterCount = function(array, letter){
         return names.length;
 };
 var friendFirstLetterCount = function(array, customer, letter){
-    for(let i = 0; i < array.lenght; i++){
+    for(let i = 0; i < array.length; i++){
         if(array[i].name === customer){
          let names = _.filter(array, (friend => friend.name[0].toLowerCase() === letter.toLowerCase()))
              return names.length;   
@@ -101,7 +101,7 @@ var friendFirstLetterCount = function(array, customer, letter){
 var friendsCount = function(array, customer, name){
     for(let i = 0; i < array.length; i++){
         if(array[i] === customer){
-            let names = _.filter(array, (friend => friend.name.toLowerCase() === name));
+            let names = _.filter(array, (friend => friend.name.toLowerCase() === name.toLowerCase()));
         }
     }
         return names;
