@@ -2,8 +2,18 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range() {
-
+function range(start, end, step = 0) {
+  let result = [];
+  if (start < end && step > 0) {
+    for (let i = start; i <= end; i + step) {
+      result.push(i);
+    }
+  } else if (start > end && step < 0) {
+      for (let i = start; i >= end; i - step) {
+        result.push(i);
+      }
+  }
+  return result;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
