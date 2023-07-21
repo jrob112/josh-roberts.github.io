@@ -2,7 +2,7 @@
 
 'use strict';
 
-const { includes, multiply, sum } = require('lodash');
+const { includes, multiply, sum, result } = require('lodash');
 var customers = require('./data/customers.json');
 var _ = require(`underbar`);
 const common = require('mocha/lib/interfaces/common');
@@ -110,18 +110,32 @@ var friendsCount = function(array, name){
         return commonCustomers
 };
 var topThreeTags = function(array){
-    let commonTags = [];
-    
+    let output = []; 
         let count = array.reduce(function (accumalator, current){
-               if(accumalator[current]){ 
-                     accumalator[current] += 1;
+            for(let i = 0; i < current.tags.length; i++){
+               if(accumalator[current.tags[i]]){ 
+                     accumalator[current.tags[i]] += 1;
                 }else{
-                    accumalator[current] = 1;
+                    accumalator[current.tags[i]] = 1;
                 }
+            }
                     return accumalator;
         }, {});
-                
-        
+        for(let key in count){
+            output.push([key, count[key]]);
+        }
+        console.log(count);
+        console.log(output);
+    let result = output.sort(function(a, b){
+            return b[1] - a[1];
+    })
+    let tags = []
+        tags.push(result[0][0]); 
+        tags.push(result[1][0]);
+        tags.push(result[2][0]);
+            return tags;
+         
+       
 };
 
 var genderCount = function(array) {

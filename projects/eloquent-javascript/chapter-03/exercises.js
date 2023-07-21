@@ -15,15 +15,18 @@ function min(x, y) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function isEven(n) {
-    if( n < 0){
-      n = isEven(n + 2)
-    }else if(n === 1){
-      return false
-    }else if(n === 0){
-      return true;
-    }
-       n = isEven(n-2)
+  if( n < 0){
+    n = isEven(n + 2)
+  }else if(n === 1){
+    return false
+  }else if(n === 0){
+    return true;
+  }else{
+     n = isEven(n-2)
+ }
+return n;  
 }
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // countChars //////////////////////////////////////////////////////////////////
