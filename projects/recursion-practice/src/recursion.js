@@ -80,34 +80,21 @@ function sumBelow(n) {
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
-var range = function(x, y){
-  let arr = [];
+var range = function(x, y, arr = []) {
   //base
-  if(y - x === 2) {
-    return [x + 1];
-  } else if(x - y === 2){
-    return [y + 1]
+  if (x === y) {
+    return arr.slice(1); 
   }
-  //recursion
-  else if(x === null || y === null){
-    return arr
-  }else if(x > y){
-    arr = range(x - 1, y);
-    arr.push(x -1);
-  return arr;
-  // }else if(x < y){
-  //   arr = range(x , y- 1);
-  //   arr.push(y -1);
-  // return arr;
-  }else if(x === y || x - y === 1 || y - x === 1){
-    return arr;
-  }
-  else{
-    arr = range(x, y - 1);
-      arr.push(y - 1);
-    return arr;
+  // recursion
+  if (x < y) {
+    arr.push(x); 
+    return range((x + 1), y, arr); 
+  } else if (x > y) {
+    arr.push(x); 
+    return range((x - 1), y, arr); 
   }
 };
+
 
 
 // 7. Compute the exponent of a number.
@@ -123,7 +110,7 @@ var exponent = function(base, exp) {
     return base;
   }//recursion
   else if(exp < 0){
-    return base *= exponent(base, exp - 1)
+    return base *= exponent(base, exp + 1)
   }
   else{
     return base *= exponent(base, exp - 1);
